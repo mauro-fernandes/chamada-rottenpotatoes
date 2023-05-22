@@ -12,8 +12,8 @@ from ..webapp import db
 
 properties = {
     "entity_name": "movie",
-    "collection_name": "Disciplines",
-    "list_fields": ["title", "Professor", "rating", "description", "created_at", "updated_at"],
+    "collection_name": "classrooms",
+    "list_fields": ["title", "Professor", "rating", "description", "updated_at"],
 }
 
 

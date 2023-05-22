@@ -33,16 +33,17 @@
     {% endif %}
 
 </div>
-
+<div>
     <P> <h3> Attendances: </h3> </p>
     <p> {{ entity.attendances }} </p>
+    
     <h3> Attendances: </h3>
     <ul>
         {% for attendance in entity.attendances %}
         <li> {{ attendance }} </li>
         {% endfor %}
     </ul>
-
+</div>
 {{ confirmModalMacro() }}
 
 

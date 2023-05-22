@@ -10,8 +10,10 @@ class Attendance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     rating = db.Column(db.String)
-    description = db.Column(db.String)
-    discipline_id = db.Column(db.Integer, db.ForeignKey("discipline.id"), nullable=False)
+    comments = db.Column(db.String)
+    presence = db.Column(db.models.BooleanField(_("Present")), default=False, nullable=False)
+    classroom_id = db.Column(db.Integer, db.ForeignKey("classroom.id"), nullable=False)
+    classroom = db.relationship("Classroom", backref="attendance", lazy=True)
     student_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     
        
