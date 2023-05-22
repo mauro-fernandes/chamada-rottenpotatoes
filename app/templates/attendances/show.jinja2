@@ -19,7 +19,8 @@
 
 <h3> Description: </h3>
 <p> {{ entity.description }} </p>
-
+<h3> Attendances: </h3>
+<p> {{ entity.attendances }} </p>
 
 <div class="btn-group" role="group">
     <a href="{{ url_for('movies.index') }}" class="btn btn-primary">Back to List</a>
@@ -31,21 +32,9 @@
         {{render_icon('x-circle') }} Delete
     </a>
     {% endif %}
-
 </div>
 
-    <P> <h3> Attendances: </h3> </p>
-    <p> {{ entity.attendances }} </p>
-    <h3> Attendances: </h3>
-    <ul>
-        {% for attendance in entity.attendances %}
-        <li> {{ attendance }} </li>
-        {% endfor %}
-    </ul>
-
 {{ confirmModalMacro() }}
-
-
 {% endblock %}
 
 {% block scripts %}

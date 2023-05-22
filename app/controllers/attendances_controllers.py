@@ -3,17 +3,17 @@ from wtforms import StringField, SubmitField
 from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
 
-from ..models import Movie
+from ..models import attendance
 
-bp_name = "movies"
+bp_name = "attendance"
 
 bp = Blueprint(bp_name, __name__)
 from ..webapp import db
 
 properties = {
-    "entity_name": "movie",
-    "collection_name": "Disciplines",
-    "list_fields": ["title", "Professor", "rating", "description", "created_at", "updated_at"],
+    "entity_name": "attendance",
+    "collection_name": "Attendances",
+    "list_fields": ["Student", "enrollment", "rating", "description", "created_at", "updated_at"],
 }
 
 

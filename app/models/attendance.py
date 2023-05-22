@@ -2,16 +2,19 @@ from . import db
 from sqlalchemy.sql import func
 
 
-class Movie(db.Model):
-    __tablename__ = "movie"
+class Attendance(db.Model):
+    #TODO: Add columns, etc, here
+    
+    __tablename__ = "attendance"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     rating = db.Column(db.String)
     description = db.Column(db.String)
-    #attendants = db.relationship("Attendance", backref="movie", lazy=True)
+    discipline_id = db.Column(db.Integer, db.ForeignKey("discipline.id"), nullable=False)
+    student_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     
-    
+       
     release_date = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime, nullable=False, default=func.now())
     updated_at = db.Column(
@@ -19,4 +22,4 @@ class Movie(db.Model):
     )
 
     def __repr__(self):
-        return "<Movie %r>" % self.id
+        return "<Attendance %r>" % self.id

@@ -14,8 +14,15 @@
 <h1>Index</h1>
 Chamada descomplicada</p>
 <p class="important">
-    </!><a href="{{ url_for('users.index') }}">Registrar presença</a></p>
-    </!><a href="{{ url_for('movies.new') }}">Registrar aula</a></p>
+    
+        <p>
+    {#    <a href="{{ url_for('attendances.new') }}">Registrar presença</a>  #}
+        </p>
+    
+    
+    <p>
+        <a href="{{ url_for('movies.new') }}">Registrar aula</a>
+    </p>
     
     
     {% endblock %}
