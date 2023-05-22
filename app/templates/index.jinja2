@@ -1,0 +1,21 @@
+{% extends "base.jinja2" %}
+{% block title %}Index{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Index</h1>
+Chamada descomplicada</p>
+<p class="important">
+    </!><a href="{{ url_for('users.index') }}">Registrar presença</a></p>
+    </!><a href="{{ url_for('movies.new') }}">Registrar aula</a></p>
+    
+    
+    {% endblock %}
