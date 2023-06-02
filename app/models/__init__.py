@@ -1,5 +1,7 @@
 from ..webapp import db
 from .user import User
-from .movie import Movie
+from .lesson import Lesson
+from .attendance import Attendance
 
-__all__ = [User, Movie]
+
+__all__ = [User, Lesson, Attendance]

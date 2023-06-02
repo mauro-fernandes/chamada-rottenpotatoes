@@ -53,7 +53,7 @@ Ref. https://flask-migrate.readthedocs.io/en/latest/
 
     export FLASK_APP=app.webapp 
     
-    flask seed movies
+    flask seed lessons
         
     flask seed users
      
@@ -62,7 +62,7 @@ Ref. https://flask-migrate.readthedocs.io/en/latest/
 
     $env:FLASK_APP = "app.webapp"
 
-    flask seed movies
+    flask seed lessons
 
     flask seed users
 
