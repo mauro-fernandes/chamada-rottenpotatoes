@@ -1,7 +1,8 @@
 {% extends "base.jinja2" %}
 {% from 'bootstrap5/utils.html' import render_icon %}
 {% from 'macros/component_confirm_modal.jinja2' import confirmModalMacro, confirmModalScript %}
-{% block title %}Index{% endblock %}
+
+{% block title %}Attendances{% endblock %}
 {% block head %}
 {{ super() }}
 <style type="text/css">
@@ -9,17 +10,18 @@
         color: #336699;
     }
 </style>
+
 {% endblock %}
 {% block content %}
 <div class="table-wrapper">
     <div class="table-title">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Manage > {{collection_name}}</h1>
+                <h1>Manage {{collection_name}}</h1>
             </div>
             <div class="col-sm-6">
                 {% if current_user.is_authenticated %}
-                <a href="{{ url_for('movies.new') }}" class="btn btn-success">
+                <a href="{{ url_for('attendances.new') }}" class="btn btn-success">
                     {{render_icon('file-plus') }} <span>Add New</span></a>
                 {% endif %}
             </div>
@@ -31,7 +33,7 @@
                 {% for field in list_fields %}
                 <th>{{ field }}</th>
                 {% endfor %}
-                <th>Actions</th>
+                <th>Options</th>
             </tr>
         </thead>
         <tbody>
@@ -41,16 +43,16 @@
                 <td>{{ entity[field] }}</td>
                 {% endfor %}
                 <td>
-                    <a class="btn" href="{{ url_for('movies.show', id=entity.id) }}" title="View"> {{
+                    <a class="btn" href="{{ url_for('attendances.show', id=entity.id) }}" title="View"> {{
                         render_icon('search') }} </a>
                     {% if current_user.is_authenticated %}
                     <span> </span>
-                    <a class="btn" href="{{ url_for('movies.edit', id=entity.id) }}" title="Edit"> {{
+                    <a class="btn" href="{{ url_for('attendances.edit', id=entity.id) }}" title="Edit"> {{
                         render_icon('pencil-square') }}</a>
                     <span> </span>
                     <a href="#" class="btn clickForActionToConfirm" entity-id="{{entity.id}}" data-bs-toggle="modal"
                         data-bs-target="#modalConfirm" data-entity-reference="{{entity.title}}"
-                        data-action="{{url_for('movies.destroy', id=entity.id)}}" data-action-text="delete">
+                        data-action="{{url_for('attendances.destroy', id=entity.id)}}" data-action-text="delete" title="delete">
                         {{render_icon('x-circle') }}
                     </a>
                     {% endif %}

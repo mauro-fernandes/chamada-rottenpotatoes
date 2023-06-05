@@ -21,7 +21,7 @@ from flask_login import (
 
 from ..webapp import db, bcrypt
 from ..models import User
-from .forms import login_form, register_form
+from .forms import login_form, Register_form
 
 
 from . import bp
@@ -42,7 +42,7 @@ def login():
             if user is None:
                 # In production, it is recommended to use a generic message
                 flash("User not found", "danger")
-            elif check_password_hash(user.pwd, form.pwd.data):
+            elif check_password_hash(user.pwd, form.password.data):
                 login_user(user)
                 return redirect(url_for("main.index"))
             else:
@@ -61,11 +61,11 @@ def profile():
 # Register route
 @bp.route("/register/", methods=("GET", "POST"), strict_slashes=False)
 def register():
-    form = register_form()
+    form = Register_form()
     if form.validate_on_submit():
         try:
             email = form.email.data
-            pwd = form.pwd.data
+            pwd = form.password.data
             username = form.username.data
 
             newuser = User(
